@@ -1,0 +1,25 @@
+<div class="row justify-content-center align-items-center" style="min-height: 90vh; margin: 0 !important;">
+    <div class="col-6 login_left">
+        <img class="img_logo" src="/assets/baner.png" alt="Not load" srcset="">
+        <img class="img_footer" src="/assets/baner.png" alt="No se logró cargar" srcset="">
+    </div>
+    <div class="col-6" style="margin-top: -6%;">
+        <form class="row justify-content-center align-items-start">
+            <ng-container>
+              <img class="img_logo2" src="/assets/logo.png" alt="Not load" srcset="">
+            </ng-container>
+            <div class="col-sm-10 mb-2">
+              <input type="email" class="form-control" (Change)="CambiarAdvertencia($event)" [formControl]="email"  placeholder="Ingrese su usuario">
+            </div>
+            <div class="col-sm-10 mb-2">
+              <input type="password" class="form-control" [formControl]="password" placeholder="Ingrese su contraseña">
+            </div>
+            <div class="col-sm-10 mb-2">
+                <button class="btn btn-primary form-control" (click)="login()">Iniciar Sesion</button>
+            </div>
+          </form>
+          <div *ngIf="advertencia.length > 0" class="mt-2">
+              <p style="color: red; text-align: center;">{{advertencia}}</p>
+          </div>
+    </div>
+</div>

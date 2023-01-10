@@ -1,0 +1,23 @@
+.login{
+    &_left{
+        background:linear-gradient(rgb(15, 15, 15),rgb(6, 6, 133));
+        min-height: 100vh;
+        display: flex;
+    }
+}
+.img{
+    &_logo{
+        margin: auto;
+        width: 50%;
+        height: 30%;
+    }
+    &_logo2{
+        margin: auto;
+        width: 22%;
+    }
+    &_footer{
+        margin: 95% 5% 0 0;
+        width: 20%;
+        height: 10%;
+    }
+}
