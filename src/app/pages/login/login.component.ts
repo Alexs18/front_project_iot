@@ -3,6 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { LoginService } from 'src/app/services/login.service';
 import Swal from 'sweetalert2';
 import {Observable} from 'rxjs'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   email:FormControl = new FormControl('', [Validators.required, Validators.email]);
   password:FormControl<string | null> = new FormControl<string | null>('', [Validators.maxLength(8), Validators.required])
   advertencia:string = ''
-  constructor(private LoginServices:LoginService) { }
+  constructor(private LoginServices:LoginService, private route:Router) { }
 
   ngOnInit(){
     this.email.valueChanges.subscribe(resp=>{
@@ -32,22 +33,26 @@ export class LoginComponent implements OnInit {
     
   }
   login():void{
+    
     let validado = this.validarEnvio();
     if (!validado) {
       return
     }
     this.LoginServices.login({email:this.email.value, password:this.password.value}).subscribe((resp:any)=>{
-      let {message, icon} = resp
+      console.log(resp);
+      
+      let {message, icon, status, token} = resp
       Swal.fire({
         text:message,
         icon
       });
+      if (status === 200) {
+        localStorage.setItem('token',token);
+        this.route.navigate(['Home'])
+      }
     }, (error:any)=>{
       let {message, icon} = error.error
-      Swal.fire({
-        text:message,
-        icon
-      })
+      this.advertencia = message;
     })
     
   }

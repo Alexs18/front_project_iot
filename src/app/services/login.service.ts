@@ -28,16 +28,12 @@ export class LoginService {
   login(usuario:user):Observable<any>{
 
     let {URI} = environment;
-    // let userpost = JSON.stringify(usuario);
-    console.log('el user');
-    // 
-    // console.log(userpost);
-    console.log('el log antes');
-//     let headers = new HttpHeaders();
-// headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-    console.log(`${URI}/login`, usuario);
-    
     return this.http.post(`${URI}/login`, usuario)
+
+  }
+  ValidarToken(token:any):Observable<any>{
+    let {URI} = environment;
+    return this.http.get(`${URI}/ValidarToken/${token}`)
 
   }
 }
