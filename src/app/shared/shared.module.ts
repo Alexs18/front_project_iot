@@ -1,24 +1,22 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 import { MatIconModule } from '@angular/material/icon';
-import { NgSelectModule } from '@ng-select/ng-select';
-
-
-
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
     CommonModule,
     MatToolbarModule,
     MatIconModule,
-    NgSelectModule 
+  ],
+  schemas:[
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   exports:[
     MatToolbarModule,
     MatIconModule,
-    NgSelectModule
-  ],
+  ]
 })
 export class SharedModule { }

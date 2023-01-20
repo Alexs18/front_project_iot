@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +19,7 @@ import { MedicionesComponent } from './pages/mediciones/mediciones.component';
 import { ReportesComponent } from './pages/reportes/reportes.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { GraficasComponent } from './components/graficas/graficas.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -41,9 +42,13 @@ import { GraficasComponent } from './components/graficas/graficas.component';
     FormsModule,
     BrowserAnimationsModule,
     SharedModule,
+    NgSelectModule
+  ],
+  exports:[
   ],
   providers: [
   ],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
