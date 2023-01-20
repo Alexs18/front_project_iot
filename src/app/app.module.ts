@@ -45,6 +45,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     NgSelectModule
   ],
   exports:[
+    NgSelectModule
   ],
   providers: [
   ],
