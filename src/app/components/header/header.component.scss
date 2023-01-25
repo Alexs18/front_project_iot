@@ -1,3 +1,17 @@
 .example-spacer {
     flex: 1 1 auto;
-  }
+}
+.bg-color-nav{
+  background:linear-gradient(rgb(15, 15, 15),rgb(6, 6, 133, 100%));
+}
+.icon-user{
+  color: aliceblue;
+  font-size: 160%;
+}
+.content-icon{
+  background-color: rgb(95, 95, 95);
+  width: auto;
+  padding: 10px;
+  height: 200%;
+  border-radius: 50%;
+}

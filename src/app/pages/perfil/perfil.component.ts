@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { faCoffee , faUser} from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-perfil',
@@ -9,6 +11,7 @@ export class PerfilComponent implements OnInit {
 
   constructor() { }
 
+  faCoffee = faUser;
   ngOnInit(): void {
   }
 

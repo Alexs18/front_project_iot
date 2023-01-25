@@ -34,6 +34,9 @@ export class LoginService {
   ValidarToken(token:any):Observable<any>{
     let {URI} = environment;
     return this.http.get(`${URI}/ValidarToken/${token}`)
-
+  }
+  GetListUser():Observable<any>{
+    let {URI} = environment
+    return this.http.get(`${URI}/listausers`)
   }
 }

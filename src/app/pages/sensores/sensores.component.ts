@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { faCoffee , faUser, faMicrochip} from '@fortawesome/free-solid-svg-icons';
 
+
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: 'app-sensores',
+  templateUrl: './sensores.component.html',
+  styleUrls: ['./sensores.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class SensoresComponent implements OnInit {
 
   constructor() { }
-
-  faCoffee = faUser;
+  FaMicro = faMicrochip
   ngOnInit(): void {
   }
 

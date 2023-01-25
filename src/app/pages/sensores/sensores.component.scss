@@ -1,0 +1,35 @@
+.container-personal{
+    height: 85vh !important;
+    box-shadow: 3px 3px 15px 20px rgba(145, 142, 142, 0.2);
+}
+.btn-font{
+    color: aliceblue;
+}
+.icon-micro-div{
+    padding: 5%;
+    display: flex;
+    margin: auto;
+}
+.icon-micro{
+    font-size: 900%;
+    align-items: center;
+    color: rgb(78, 78, 78);
+}
+.center-container{
+    display: flex !important;
+    margin: auto !important;
+    justify-content: center;
+    align-items: center;
+}
+.text-container{
+    flex-direction: column;
+}
+.font-text{
+    font-size: 20px;
+}
+.button-container{
+    margin-top: 5% !important;
+}
+.text-title-modal{
+    font-size: 120%;
+}

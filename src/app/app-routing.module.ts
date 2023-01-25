@@ -7,6 +7,7 @@ import { UserComponent } from './pages/user/user.component';
 import { MedicionesComponent } from './pages/mediciones/mediciones.component';
 import { ReportesComponent } from './pages/reportes/reportes.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
+import { SensoresComponent } from './pages/sensores/sensores.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path:'Home',
     component:HomeComponent,
+  },
+  {
+    path:'Sensors',
+    component:SensoresComponent
   },
   {
     path:'Administracion',

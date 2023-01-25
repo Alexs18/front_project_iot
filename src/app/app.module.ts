@@ -20,11 +20,16 @@ import { ReportesComponent } from './pages/reportes/reportes.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { GraficasComponent } from './components/graficas/graficas.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { UserComponent } from './pages/user/user.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RouterModule } from '@angular/router';
+import { SensoresComponent } from './pages/sensores/sensores.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    UserComponent,
     HomeComponent,
     HeaderComponent,
     FooterComponent,
@@ -32,7 +37,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     MedicionesComponent,
     ReportesComponent,
     PerfilComponent,
-    GraficasComponent
+    GraficasComponent,
+    SensoresComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +48,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     FormsModule,
     BrowserAnimationsModule,
     SharedModule,
-    NgSelectModule
+    NgSelectModule,
+    FontAwesomeModule
   ],
   exports:[
     NgSelectModule

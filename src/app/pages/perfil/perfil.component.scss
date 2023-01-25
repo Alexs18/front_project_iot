@@ -1,0 +1,26 @@
+.fon-img{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 15%;
+    border-radius: 0 10% 0 10%;
+    border: 1px solid black;
+}
+.title-user{
+    padding: 4%;
+    background-color: rgb(224, 231, 235);
+    border-bottom: 0.5px solid rgb(69, 69, 69);
+}
+.icon-user{
+    font-size: 620%;
+}
+.content-icon{
+    width: auto;
+    padding: 8%;
+    // height: 700%;
+    text-align: center;
+    margin: 0 0 5% 0;
+    // border-radius: 50%;
+  }

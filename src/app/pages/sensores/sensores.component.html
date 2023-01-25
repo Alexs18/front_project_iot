@@ -1,0 +1,64 @@
+<ng-container>
+    <div class="container bg-light mt-2 container-personal">
+        <div class="row justify-content-center align-items-center">
+            <div class="icon-micro-div">
+                <fa-icon class="icon-micro center-container" [icon]="FaMicro"></fa-icon>
+            </div>
+            <div class="center-container text-container">
+                <p class="font-text">Aún no se encuentra ningún sensor creado</p>
+                <span class="font-text">Si desea crear uno nuevo dirijase al boton en la parte inferior</span>
+            </div>
+            <div class="center-container mt-4 button-container">
+                <button class="btn btn-info btn-font" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Crear nuevo sensor
+                </button>
+            </div>
+        </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-title-modal" id="exampleModalLabel">Crear Nuevo Sensor</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+                <div class="form-group row">
+                    <div class="col-8" style="width: 18rem;">
+                        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+                        <p class="card-img-top title-user">Aquí va la imagen del sensor</p>
+                        <div class="card-body justify-content-center align-items-center">
+                          <div class="content-icon">
+                            <!-- <fa-icon class="icon-user" [icon]="faCoffee"></fa-icon> -->
+                          </div>
+                        </div>
+                      </div>
+                    <div class="col-4">
+                        <button class="btn btn-primary">Cargar Imagen</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="elementoquimico">
+                        Elemento Quimico
+                    </label>
+                    <input type="text" id="elementoquimico" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Descripción</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    </div>
+</ng-container>
+
