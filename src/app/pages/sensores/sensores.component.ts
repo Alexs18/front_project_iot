@@ -13,21 +13,36 @@ export class SensoresComponent implements OnInit {
 
   descripcionsensor:string = '';
   elementoquimico:string = '';
+  actualizar:boolean = false;
   listSensors:any[] = <any>[];
+  idsensor:number = 0;
   constructor(private ServiceSensor:SensoresService) { }
   FaMicro = faMicrochip
   FaPlus = faPlus
   ngOnInit(): void {
     this.Getsensors();
   }
-
-  CrearSensor(){
+  SensorModel(){
     let sensordata = {
       sensor:{
         elementoquimico: this.elementoquimico,
-        descripcion:this.descripcionsensor
+        descripcion:this.descripcionsensor,
       }
     }
+    return sensordata;
+  }
+  SetSensor(sensor:any){
+    let {descripcion, elemento_quimico} = sensor;
+    this.elementoquimico = elemento_quimico;
+    this.descripcionsensor = descripcion;
+    this.idsensor = sensor.id;
+    this.actualizar = true;
+    return sensor
+  }
+  CrearSensor(){
+    console.log('crea');
+    
+    let sensordata = this.SensorModel();
     this.ServiceSensor.CrearSensor(sensordata).subscribe(async(data)=>{
         let {message, icon} = data;
        await Swal.fire({
@@ -95,26 +110,12 @@ export class SensoresComponent implements OnInit {
   }
   ObtenerHora(medidas:any){
     let tiempo = new Date(medidas.fecha_creacion);
-    let mes1 = ''
-    let mes = tiempo.getMonth()+1;
-    if (mes.toLocaleString().length >1) {
-      mes1 = `0${mes}`
-    }
-    let dia = tiempo.getDate().toLocaleString();
-    let año = tiempo.getFullYear();
-    if (mes1.length >0) {
-      let fecha1 = `${mes1}/${dia}/${año}`
-      console.log(fecha1);
-    }else{
-    let fecha1 = `${mes}/${dia}/${año}`
-    console.log(fecha1);
-    }
-
-    
-    let hora = tiempo.getHours();
-    let minutos = tiempo.getMinutes();
-    let segundos = tiempo.getSeconds();
-    let medida = `${hora}:${minutos}:${segundos}`
+    let Mes = ''
+    let MesMedicion = tiempo.getMonth()+1;
+    Mes = MesMedicion.toLocaleString.length === 0? Mes = `0${MesMedicion}`: Mes = `${MesMedicion}`;
+    let Dia = tiempo.getDay();
+    let Anio = tiempo.getFullYear() ;
+    let medida = `${Mes}/${Dia}/${Anio}`
     
     medidas.fecha_creacion = medida
     return medidas
@@ -125,4 +126,29 @@ export class SensoresComponent implements OnInit {
     }
   }
 
+  EditarSensor(){
+    console.log('edita');
+    
+    let sensordata = this.SensorModel();
+    this.ServiceSensor.UpdateSensor(sensordata, this.idsensor).subscribe(async(resp)=>{
+      let {message, icon} = resp;
+      await Swal.fire({
+         icon,
+         text:message
+       });
+       this.Getsensors();
+    }, async (err)=>{
+      let {message, icon} = err;
+      await Swal.fire({
+         icon,
+         text:message
+       });
+    })
+
+  }
+  CambiarEstado(){
+    this.actualizar = false;
+    this.descripcionsensor = '';
+    this.elementoquimico = ''
+  }
 }

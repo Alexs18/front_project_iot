@@ -35,5 +35,9 @@ export class SensoresService {
     let {URI} = environment;
     return this.http.put(`${URI}/deletelogic/${id}`, this.header);
   }
+  UpdateSensor(sensordata:any, id:any):Observable<any>{
+    let {URI} = environment;
+    return this.http.put(`${URI}/UpdateSensor/${id}`, sensordata) 
+  }
 
 }

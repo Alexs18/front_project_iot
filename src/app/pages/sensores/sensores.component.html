@@ -19,7 +19,7 @@
 </ng-container>
 <ng-container>
     <div class="container bg-light mt-4 container-personal2">
-        <button class="btn-new-point" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button class="btn-new-point" data-bs-toggle="modal" (click)="CambiarEstado()" data-bs-target="#exampleModal">
             <fa-icon class="icon-plus center-container" [icon]="FaPlus"></fa-icon>
         </button>
         <div class="main-container">
@@ -44,7 +44,7 @@
                     </ul>
                     <div class="row">
                         <div class="col-7">
-                            <button class="btn btn-warning">Editar Sen.</button>
+                            <button class="btn btn-warning" (click)="SetSensor(item);" data-bs-toggle="modal" data-bs-target="#exampleModal">Editar Sen.</button>
                         </div>
                         <div class="col-5">
                             <button class="btn btn-danger" (click)="DeleteSensor(item.id)">Eliminar</button>
@@ -94,8 +94,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" (click)="CrearSensor()">Guardar</button>
-      </div>
+        <button type="button" [ngClass]="actualizar? 'btn-success' : 'btn-primary'" class="btn" (click)="actualizar? EditarSensor() :CrearSensor()">Guardar</button>
+      </div>  
     </div>
   </div>
 </div>
