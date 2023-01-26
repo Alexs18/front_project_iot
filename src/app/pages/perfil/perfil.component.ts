@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit} from '@angular/core';
 import { faCoffee , faUser} from '@fortawesome/free-solid-svg-icons';
 
 
@@ -7,12 +7,19 @@ import { faCoffee , faUser} from '@fortawesome/free-solid-svg-icons';
   templateUrl: './perfil.component.html',
   styleUrls: ['./perfil.component.scss']
 })
-export class PerfilComponent implements OnInit {
+export class PerfilComponent implements OnInit, AfterViewInit {
 
   constructor() { }
 
   faCoffee = faUser;
   ngOnInit(): void {
+    
+  }
+  ngAfterViewInit(): void {
+      let user = localStorage.getItem('user');
+      console.log('estamos imprimiendo los datos del usuario..');
+      console.log(user);
+           
   }
 
 }

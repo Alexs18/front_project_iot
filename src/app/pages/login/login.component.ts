@@ -38,16 +38,16 @@ export class LoginComponent implements OnInit {
     if (!validado) {
       return
     }
-    this.LoginServices.login({email:this.email.value, password:this.password.value}).subscribe((resp:any)=>{
-      console.log(resp);
+    this.LoginServices.login({email:this.email.value, password:this.password.value}).subscribe(async(resp:any)=>{
       
-      let {message, icon, status, token} = resp
-      Swal.fire({
+      let {message, icon, status, token, user} = resp;
+      await Swal.fire({
         text:message,
         icon
       });
       if (status === 200) {
         localStorage.setItem('token',token);
+        localStorage.setItem('user', JSON.stringify(user));
         this.route.navigate(['Home'])
       }
     }, (error:any)=>{
