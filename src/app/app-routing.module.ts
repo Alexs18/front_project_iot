@@ -8,37 +8,45 @@ import { MedicionesComponent } from './pages/mediciones/mediciones.component';
 import { ReportesComponent } from './pages/reportes/reportes.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { SensoresComponent } from './pages/sensores/sensores.component';
+import { MainComponent } from './main/main/main.component';
 
 const routes: Routes = [
   {
-    path:'',
+    path:'Login',
     component:LoginComponent
   },
   {
-    path:'Home',
-    component:HomeComponent,
+    path:'',
+    component: MainComponent,
+    children:[
+      {
+        path:'Administracion',
+        component:UserComponent,
+      },
+      {
+        path:'Home',
+        component:HomeComponent,
+      },
+      {
+        path:'Sensors',
+        component:SensoresComponent
+      },
+      {
+        path:'Mediciones',
+        component:MedicionesComponent
+      },
+      {
+        path:'Reportes',
+        component:ReportesComponent
+      },
+      {
+        path:'Perfil',
+        component:PerfilComponent
+      },
+    ]
   },
-  {
-    path:'Sensors',
-    component:SensoresComponent
-  },
-  {
-    path:'Administracion',
-    component:UserComponent
-  },
-  {
-    path:'Mediciones',
-    component:MedicionesComponent
-  },
-  {
-    path:'Reportes',
-    component:ReportesComponent
-  },
-  {
-    path:'Perfil',
-    component:PerfilComponent
-  },
-  {path:'**', redirectTo:'/'}
+  
+  {path:'**', redirectTo:'/Login'}
 ];
 
 @NgModule({

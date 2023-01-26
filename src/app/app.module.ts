@@ -24,12 +24,14 @@ import { UserComponent } from './pages/user/user.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
 import { SensoresComponent } from './pages/sensores/sensores.component';
+import { MainComponent } from './main/main/main.component';
+import { MainModule } from './main/main/main.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    UserComponent,
+    // UserComponent,
     HomeComponent,
     HeaderComponent,
     FooterComponent,
@@ -38,7 +40,8 @@ import { SensoresComponent } from './pages/sensores/sensores.component';
     ReportesComponent,
     PerfilComponent,
     GraficasComponent,
-    SensoresComponent
+    SensoresComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
@@ -49,10 +52,12 @@ import { SensoresComponent } from './pages/sensores/sensores.component';
     BrowserAnimationsModule,
     SharedModule,
     NgSelectModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MainModule
   ],
   exports:[
-    NgSelectModule
+    NgSelectModule,
+    
   ],
   providers: [
   ],
