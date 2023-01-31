@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { faCoffee , faUser, faMicrochip, faPlus} from '@fortawesome/free-solid-svg-icons';
 import { SensoresService } from 'src/app/services/sensores.service';
 import Swal from 'sweetalert2';
@@ -13,9 +13,12 @@ export class SensoresComponent implements OnInit {
 
   descripcionsensor:string = '';
   elementoquimico:string = '';
+  imagen:string = '';
   actualizar:boolean = false;
   listSensors:any[] = <any>[];
   idsensor:number = 0;
+  @ViewChild('ImgSensor', {static:false}) ImgSensor!: ElementRef;
+  @ViewChild('ImgInput', {static:false}) ImgInput!: ElementRef;
   constructor(private ServiceSensor:SensoresService) { }
   FaMicro = faMicrochip
   FaPlus = faPlus
@@ -27,6 +30,7 @@ export class SensoresComponent implements OnInit {
       sensor:{
         elementoquimico: this.elementoquimico,
         descripcion:this.descripcionsensor,
+        imagen:this.imagen
       }
     }
     return sensordata;
@@ -40,8 +44,7 @@ export class SensoresComponent implements OnInit {
     return sensor
   }
   CrearSensor(){
-    console.log('crea');
-    
+
     let sensordata = this.SensorModel();
     this.ServiceSensor.CrearSensor(sensordata).subscribe(async(data)=>{
         let {message, icon} = data;
@@ -127,8 +130,7 @@ export class SensoresComponent implements OnInit {
   }
 
   EditarSensor(){
-    console.log('edita');
-    
+   
     let sensordata = this.SensorModel();
     this.ServiceSensor.UpdateSensor(sensordata, this.idsensor).subscribe(async(resp)=>{
       let {message, icon} = resp;
@@ -151,4 +153,27 @@ export class SensoresComponent implements OnInit {
     this.descripcionsensor = '';
     this.elementoquimico = ''
   }
+  
+  async encodeFileAsBase64URL(file:any) {
+    return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.addEventListener('loadend', () => {
+            resolve(reader.result);
+        });
+        reader.readAsDataURL(file);
+    });
+ };
+
+ async setImg(event:any){
+    let base64 = await this.encodeFileAsBase64URL( event.target.files[0]);
+    let SrcImg:HTMLElement = this.ImgSensor.nativeElement;
+    this.imagen = `${base64}`
+    SrcImg.setAttribute('src', `${base64}`);
+  }
+
+  ClickSetImg(){
+    let InputClick:HTMLElement = this.ImgInput.nativeElement;
+    InputClick.click();
+  }
+
 }

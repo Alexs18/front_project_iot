@@ -25,6 +25,13 @@
     // border-radius: 50%;
 }
 .container-personal{
-    height: 85vh !important;
+    height: auto !important;
     box-shadow: 3px 3px 15px 20px rgba(145, 142, 142, 0.2);
+}
+.container-button{
+    display: flex;
+    justify-content: flex-end;
+}
+.none{
+    display: none;
 }

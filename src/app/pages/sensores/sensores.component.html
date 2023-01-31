@@ -14,7 +14,7 @@
                 </button>
             </div>
         </div>
-  
+
     </div>
 </ng-container>
 <ng-container>
@@ -25,7 +25,7 @@
         <div class="main-container">
             <div *ngFor="let item of listSensors; let i = index" class="car-sensor">
                 <div class="car-img">
-                    <img class="car-img-link" src="item.img" alt="No se pudo cargar" srcset="">
+                    <img class="car-img-link" src="{{item.img}}" alt="No se pudo cargar" srcset="">
                 </div>
                 <div class="car-list">
                     <ul>
@@ -39,12 +39,13 @@
                             Elemento: {{item.elemento_quimico}}
                         </li>
                         <li>
-                           Fecha Creación: {{item.fecha_creacion}}
+                            Fecha Creación: {{item.fecha_creacion}}
                         </li>
                     </ul>
                     <div class="row">
                         <div class="col-7">
-                            <button class="btn btn-warning" (click)="SetSensor(item);" data-bs-toggle="modal" data-bs-target="#exampleModal">Editar Sen.</button>
+                            <button class="btn btn-warning" (click)="SetSensor(item);" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">Editar Sen.</button>
                         </div>
                         <div class="col-5">
                             <button class="btn btn-danger" (click)="DeleteSensor(item.id)">Eliminar</button>
@@ -58,45 +59,45 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title text-title-modal" id="exampleModalLabel">Crear Nuevo Sensor</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-          <div class="container">
-              <div class="form-group row">
-                  <div class="col-8" style="width: 18rem;">
-                      <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-                      <p class="card-img-top title-user">Aquí va la imagen del sensor</p>
-                      <div class="card-body justify-content-center align-items-center">
-                        <div class="content-icon">
-                          <!-- <fa-icon class="icon-user" [icon]="faCoffee"></fa-icon> -->
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-title-modal" id="exampleModalLabel">Crear Nuevo Sensor</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="form-group row">
+                        <div class="col-auto justify-content-center align-items-center text-center"
+                            style="width: 18rem;">
+                            <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+                            <div class="Content-Img">
+                                <img class="Conten-img-sensor" src="/assets/default.jpg" alt="" #ImgSensor>
+                            </div>
                         </div>
-                      </div>
+                        <input style="display: none;" (change)="setImg($event)" type="file" name="" #ImgInput>
+                        <div class="col-4">
+                            <button (click)="ClickSetImg()" class="btn btn-primary">Cargar Imagen</button>
+                        </div>
                     </div>
-                  <div class="col-4">
-                      <button class="btn btn-primary">Cargar Imagen</button>
-                  </div>
-              </div>
-              <div class="form-group">
-                  <label for="elementoquimico">
-                      Elemento Quimico
-                  </label>
-                  <input type="text" [(ngModel)]="elementoquimico" id="elementoquimico" class="form-control">
-              </div>
-              <div class="form-group">
-                  <label for="exampleFormControlTextarea1">Descripción</label>
-                  <textarea class="form-control" [(ngModel)]="descripcionsensor" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <div class="form-group">
+                        <label for="elementoquimico">
+                            Elemento Quimico
+                        </label>
+                        <input type="text" [(ngModel)]="elementoquimico" id="elementoquimico" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Descripción</label>
+                        <textarea class="form-control" [(ngModel)]="descripcionsensor" id="exampleFormControlTextarea1"
+                            rows="3"></textarea>
+                    </div>
                 </div>
-          </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" [ngClass]="actualizar? 'btn-success' : 'btn-primary'" class="btn" (click)="actualizar? EditarSensor() :CrearSensor()">Guardar</button>
-      </div>  
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" [ngClass]="actualizar? 'btn-success' : 'btn-primary'" class="btn"
+                    (click)="actualizar? EditarSensor() :CrearSensor()">Guardar</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
-
