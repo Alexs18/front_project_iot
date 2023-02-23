@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
+import {HttpClient, HttpHeaders} from '@angular/common/http'
 import {Observable} from 'rxjs'
 import { environment } from 'src/environments/environment';
 
@@ -12,16 +12,17 @@ interface user{
 })
 
 export class LoginService {
-
-  // header = new HttpHeaders({
-  //   // 'Content-Type': 'application/json',
-  //   // 'X-Requested-With': 'XMLHttpRequest',
-  //   // 'MyClientCert': '',        // This is empty
-  //   // 'MyToken': ''     ,         // This is empty
-  //   "Access-Control-Allow-Origin":"*"
-  // })
-//   .set('content-type', 'application/json')
-//   .set('Access-Control-Allow-Origin', ['*']);
+  token = localStorage.getItem('token');
+  header = new HttpHeaders({
+    // 'Content-Type': 'application/json',
+    // 'X-Requested-With': 'XMLHttpRequest',
+    // 'MyClientCert': '',        // This is empty
+    // 'MyToken': ''     ,         // This is empty
+    "Access-Control-Allow-Origin":"*"
+  })
+  .set('content-type', 'application/json')
+  .set('Access-Control-Allow-Origin', ['*'])
+  .set('Authorization', `Bearer ${this.token}`)
 
   constructor(private http: HttpClient) { }
 
@@ -31,9 +32,14 @@ export class LoginService {
     return this.http.post(`${URI}/login`, usuario)
 
   }
-  ValidarToken(token:any):Observable<any>{
+  ValidarToken():Promise<any>{
     let {URI} = environment;
-    return this.http.get(`${URI}/ValidarToken/${token}`)
+    return new Promise((resolve, reject)=>{
+      this.http.get(`${URI}/ValidarToken`, {headers:this.header}).subscribe(result=>{
+        resolve(result)
+      })
+    }) 
+   
   }
   GetListUser():Observable<any>{
     let {URI} = environment

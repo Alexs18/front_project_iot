@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  URI: 'http://170.178.196.62:3000'
+  URI: 'https://ws-spark-iot.org'
 };

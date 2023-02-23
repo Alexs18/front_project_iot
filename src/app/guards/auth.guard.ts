@@ -14,19 +14,10 @@ export class AuthGuard implements CanActivate {
   ){
 
   }
-  ValidarToken():any{
-    this.loginservice.ValidarToken(this.token).subscribe(resp=>{
-      console.log('pasa por la calidacon');
-      console.log(resp);
-      
-      let {tokenvalid} = resp;
-      this.router.navigate(['Home']);
-      return tokenvalid
-    }, error=>{
-      console.log('agarra  el error');
-      console.log(error);
-      return false
-    })
+  async ValidarToken(){
+    let tokenresul = await this.loginservice.ValidarToken();
+    let {tokenvalid} = tokenresul;
+    return tokenvalid
   }
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -34,8 +25,9 @@ export class AuthGuard implements CanActivate {
  
     let token = this.ValidarToken();
     if (!token) {
+      this.router.navigate(['login']);  
       return false;
-    }  
+    }
     return true
   }
   

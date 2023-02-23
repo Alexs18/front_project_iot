@@ -51,10 +51,10 @@ export class UserComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
-    this.GetUser();
+    
   }
   ngOnInit() {
-   
+    this.GetUser();
   }
   GetUser(){
     this.ServiceUser.GetListUser().subscribe(resp=>{
