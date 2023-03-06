@@ -2,7 +2,8 @@
     flex: 1 1 auto;
 }
 .bg-color-nav{
-  background:linear-gradient(rgb(15, 15, 15),rgb(6, 6, 133, 100%));
+  background-color: rgb(8, 103, 32);
+  // background:linear-gradient();
 }
 .icon-user{
   color: aliceblue;
@@ -14,4 +15,33 @@
   padding: 10px;
   height: 200%;
   border-radius: 50%;
+}
+.logo{
+  &_text{
+    width: 100px;
+  } 
+}
+.navbar_personal{
+  // background-color: red;
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.35em;
+}
+.ul_list{
+  color: aliceblue;
+  list-style: none;
+  display: flex;
+  // background-color: yellow;
+  justify-content: center;
+  align-items: end;
+  justify-content: space-between;
+}
+.list_items{
+  // background-color: red;
+  width: 70%;
+}
+.li_list{
+  padding: 1em;
 }

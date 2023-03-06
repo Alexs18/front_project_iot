@@ -27,6 +27,7 @@ import { SensoresComponent } from './pages/sensores/sensores.component';
 import { MainComponent } from './main/main/main.component';
 import { MainModule } from './main/main/main.module';
 import { CommonModule } from '@angular/common';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { CommonModule } from '@angular/common';
     PerfilComponent,
     GraficasComponent,
     SensoresComponent,
-    MainComponent
+    MainComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

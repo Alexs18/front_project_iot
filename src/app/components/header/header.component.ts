@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faCoffee , faUser, faMicrochip} from '@fortawesome/free-solid-svg-icons';
+import { faCoffee , faUser, faMicrochip, faUsers, faWifi} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',

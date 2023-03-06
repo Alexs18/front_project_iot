@@ -1,0 +1,47 @@
+/* .container */
+.icono1{
+    background-color: red;
+    width: 200%;
+
+}
+.grid_tools{
+    display: flex;
+    justify-content: space-evenly;
+    height: 30%;
+}
+.min_heigth{
+    min-height: 80vh;
+}
+.icon_d{
+    padding:0 !important;
+    background-color: rgb(168, 168, 168);
+    width: 31%;
+    height: 85%;
+    margin: 10px;
+}
+.icon-users{
+    width: 2000%;
+}
+.icon_left{
+    /* background-color: blue; */
+    width: 100px;
+    height: 100%;
+}
+.icon_rigth{
+    margin: 10% 0 0 0;
+}
+.active{
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.users{
+    background-color: rgb(217, 242, 28);
+}
+.sensor{
+    background-color: blueviolet;
+}
+.danger{
+    background-color: red;
+}
