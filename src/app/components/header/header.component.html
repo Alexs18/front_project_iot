@@ -1,32 +1,56 @@
 <!-- <nav class="navbar  navbar-expand-lg "> -->
-  <div class="navbar_personal bg-color-nav">
-    <div>
+  <div class="main_nav bg-color-nav">
+    <div class="logo_nav">
       <ng-container>
+        <!-- <img class="img_logo2 mb-3" src="/assets/LogoConstante.png" alt="Not load" srcset=""> -->
         <img class="logo_text" src="/assets/baner2.png" alt="Not load" srcset="">
       </ng-container>
     </div>
-    <div class="list_items">
-      <ul class="ul_list mt-1">
-        <li class="li_list">
-          <a class="nav-link active" aria-current="page" routerLink="/Home">INICIO</a>
-        </li>
-        <li class="li_list" >
-          <a class="nav-link" routerLink="/Administracion">ADMINISTRACION</a>
-        </li>
-        <li class="li_list" >
-          <a class="nav-link" routerLink="/Sensors">SENSORES</a>
-        </li>
-        <li class="li_list">
-          <a class="nav-link" routerLink="/Mediciones">MEDICIONES</a>
-        </li>
-        <li class="li_list">
-          <a class="nav-link" routerLink="/Reportes">REPORTES</a>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <div class="content-icon" routerLink="/Perfil">
-        <fa-icon class="icon-user" [icon]="faCoffee"></fa-icon>
+    <div class="navbar_personal">
+      <div class="list_items">
+        <ul class="ul_list mt-1">
+          <li class="li_list">
+            <span class="iconstyle">
+              <fa-icon [icon]="homeicon"></fa-icon>
+            </span>
+            <a class="nav-link active" aria-current="page" routerLink="/Home">INICIO</a>
+          </li>
+          <li class="li_list" >
+            <span class="iconstyle">
+              <fa-icon [icon]="adminicon"></fa-icon>
+            </span>
+            <a class="nav-link" routerLink="/Administracion">ADMINISTRACION</a>
+          </li>
+          <li class="li_list" >
+            <span class="iconstyle">
+              <fa-icon [icon]="sensoricon"></fa-icon>
+            </span>
+            <a class="nav-link" routerLink="/Sensors">SENSORES</a>
+          </li>
+          <li class="li_list">
+            <span class="iconstyle">
+              <fa-icon [icon]="stadisticicon"></fa-icon>
+            </span>
+            <a class="nav-link" routerLink="/Mediciones">MEDICIONES</a>
+          </li>
+          <li class="li_list">
+            <span class="iconstyle">
+              <fa-icon [icon]="foldericon"></fa-icon>
+            </span>
+            <a class="nav-link" routerLink="/Reportes">REPORTES</a>
+          </li>
+        </ul>
+      </div>
+      <div class="perfil_nav">
+        <span style="color: aqua;">
+          <fa-icon size="2x" [icon]="chaticon"></fa-icon>
+        </span>
+        <span style="color: rgb(246, 246, 41);">
+          <fa-icon size="2x" [icon]="notificationicon"></fa-icon>
+        </span>
+        <fa-icon routerLink="/Perfil" size="2x" [icon]="usericon"></fa-icon>
+        <!-- <div class="content-icon" routerLink="/Perfil">
+        </div> -->
       </div>
     </div>
   </div>

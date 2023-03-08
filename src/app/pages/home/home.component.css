@@ -4,6 +4,10 @@
     width: 200%;
 
 }
+.graficastyle{
+    width: 8% !important;
+    background-color: white !important;
+}
 .grid_tools{
     display: flex;
     justify-content: space-evenly;
@@ -44,4 +48,16 @@
 }
 .danger{
     background-color: red;
+}
+.contamination{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    min-height:80vh;
+    background-color: rgb(255, 255, 255);
+}
+.contamination_text_title{
+    color: rgb(0, 0, 0);
+    text-align: center;
 }

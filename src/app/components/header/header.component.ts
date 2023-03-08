@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faCoffee , faUser, faMicrochip, faUsers, faWifi} from '@fortawesome/free-solid-svg-icons';
+import { faCoffee, faChartSimple ,faUser, faMicrochip, faWifi, faHome, faFolder, faGear, faBell, faComment} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +10,14 @@ export class HeaderComponent implements OnInit {
 
   constructor() { }
 
-  faCoffee = faUser;
+  usericon = faUser;
+  homeicon = faHome;
+  sensoricon = faMicrochip;
+  stadisticicon = faChartSimple;
+  foldericon = faFolder;
+  adminicon = faGear;
+  notificationicon = faBell;
+  chaticon = faComment;
   ngOnInit(): void {
   }
 
