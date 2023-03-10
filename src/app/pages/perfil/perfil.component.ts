@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef} from '@angular/core';
-import { faCoffee , faUser} from '@fortawesome/free-solid-svg-icons';
+import { faCoffee , faUser, faCamera} from '@fortawesome/free-solid-svg-icons';
 import {FormControl, FormGroup} from '@angular/forms'
 
 @Component({
@@ -26,6 +26,7 @@ export class PerfilComponent implements OnInit, AfterViewInit {
 
   faCoffee = faUser;
   showiconUser:boolean = true;
+  cameraicon = faCamera;
   ngOnInit(): void {
     
     let user:any = localStorage.getItem('user');

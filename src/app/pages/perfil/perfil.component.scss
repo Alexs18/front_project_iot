@@ -25,7 +25,11 @@
     // border-radius: 50%;
 }
 .container-personal{
-    height: auto !important;
+    min-height: 85vh !important;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     box-shadow: 3px 3px 15px 20px rgba(145, 142, 142, 0.2);
 }
 .container-button{
@@ -34,4 +38,67 @@
 }
 .none{
     display: none;
+}
+.perfil{
+    &_background{
+        background-color: rgb(8, 103, 32);
+        text-align: center;
+        padding: 8% 10% 25% 10%;
+    }
+    &_main{
+        margin: auto;
+        padding: 1%;
+        // background-color: red;
+        width: 100%;
+    }
+    &_card{
+        // background-color: red;
+        min-height: 60vh;
+        width: 97%;
+        padding: 0.05em;
+    }
+    &_photo{
+        width: 100%;
+        height: 50%;
+        text-align: center;
+        border-radius: 50%;
+        position: absolute;
+        margin: 30% 0 0 0;
+    }
+    &_picture{
+        // background-color: red;
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+    }
+    &_changephoto{
+        height: 40%;
+        background-color: blue;
+    }
+    &_options{
+        width: 60%;
+        position: relative;
+        background-color: yellow;
+    }
+    &_cameraicon{
+        position: absolute;
+        z-index: 1;
+        margin: 35% 0 0 10%;
+    }
+    &_buttons{
+        position: absolute;
+        margin: 75% 0 0 0;
+        min-height: 33vh !important;
+        &_wdt{
+            width: 100%;
+            text-decoration: none !important;
+            // margin: 2% 0 2% 0;
+        }
+    }
+    &_formulario{
+        // background-color: rgb(55, 255, 0);
+    }
+    &_text{
+        font-size: 250%;
+    }
 }
