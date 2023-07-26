@@ -23,6 +23,7 @@ export class SensoresComponent implements OnInit {
   FaMicro = faMicrochip
   FaPlus = faPlus
   ngOnInit(): void {
+  
     this.Getsensors();
   }
   SensorModel(){

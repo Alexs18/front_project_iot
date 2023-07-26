@@ -1,86 +1,144 @@
-
-<div class="mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource">
-
-    <!-- Position Column -->
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef>  </th>
-      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-    </ng-container>
-    
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: dataSource;"></tr>
-  </table>
-
-  <!-- <mat-paginator [pageSizeOptions]="[5, 10,15, 20]"
-                 showFirstLastButtons
-                 aria-label="Select page of periodic elements">
-  </mat-paginator> -->
+<div class="container mt-5 midle">
+  <div class="row">
+    <div class="col-4">
+      <button type="button" class="btn btn-primary btn-lg"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal">Crear Usuario</button>
+    </div>
+    <div class="col-4">
+      <button type="button" class="btn btn-warning btn-lg"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal2">Administración de usuarios</button>
+    </div>
+    <div class="col-4">
+      <button type="button" class="btn btn-success btn-lg">Reportes</button>
+    </div>
+  </div>
 </div>
 
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h3 class="modal-title text-title-modal" id="exampleModalLabel">Creación de nuevo usuario</h3>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div>
+              <form class="row g-3">
+                <div class="col-6">
+                  <label for="inputAddress" class="form-label">Nombres</label>
+                  <input type="text" class="form-control" id="inputAddress" >
+                </div>
+                <div class="col-6">
+                  <label for="inputAddress" class="form-label">Apellidos</label>
+                  <input type="text" class="form-control" id="inputAddress" >
+                </div>
+                <div class="col-md-6">
+                  <label for="inputEmail4" class="form-label">Correo</label>
+                  <input type="email" class="form-control" id="inputEmail4">
+                </div>
+                <div class="col-md-6">
+                  <label for="inputPassword4" class="form-label">Usuario</label>
+                  <input type="text" class="form-control" id="inputPassword4">
+                </div>
+                <div class="col-md-6">
+                  <label for="inputEmail4" class="form-label">Contraseña</label>
+                  <input type="password" class="form-control" id="inputEmail4">
+                </div>
+                <div class="col-md-6">
+                  <label for="inputPassword4" class="form-label">Confirmar contraseña</label>
+                  <input type="password" class="form-control" id="inputPassword4">
+                </div>
+                <div class="col-6">
+                  <label for="inputAddress2" class="form-label">Teléfono</label>
+                  <input type="number" class="form-control" id="inputAddress2">
+                </div>
+                <div class="col-md-6">
+                  <label for="inputCity" class="form-label">Tipo de usuario</label>
+                  <div class="row">
+                    <div class="col-6  mt-2">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                        <label class="form-check-label" for="gridCheck">
+                          Administrador
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-6 mt-2">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                        <label class="form-check-label" for="gridCheck">
+                          Operador
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      
+              </form>
+            </div>    
+          </div>
+          <div class="modal-footer">
+            <div class="row">
+              <div class="col-6">
+                <button type="submit" class="btn btn-primary">Registrar</button>
+                <!-- <button type="submit" class="btn btn-danger">Cancelar</button> -->
+              </div>
+              <div class="col-6">
+                <button type="submit" class="btn btn-danger">Cancelar</button>
+              </div>
 
-<!-- <div class="main-content" >
-    <h1>Administración de Usuarios</h1>
-    <div class="container-fluid">
-        <form>
-            <div class="form-row">
-            
-                <div class="col-6">
-                    <label for="inputEmail4">Nombres</label>
-                    <input type="text" class="form-control">    
-                </div>
-                <div class="col-6">
-                    <label for="inputEmail4">Apellidos</label>
-                    <input type="text" class="form-control">    
-                </div>
-              <div class="form-group col-6">
-                <label for="inputEmail4">Correo</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-              </div>
-              <div class="form-group col-md-6">
-                <label for="inputPassword4">Contraseña</label>
-                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-              </div>
-              <div class="form-group col-md-6">
-                <label for="inputPassword4">Confirmar Contraseña</label>
-                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+            </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h3 class="modal-title text-title-modal" id="exampleModalLabel">Administración de usuarios</h3>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">id</th>
+                  <th scope="col">Usuario</th>
+                  <th scope="col">Correo</th>
+                  <th scope="col">Tipo</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Teléfono</th>
+                  <th scope="col">Opciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of listaUsuarios">
+                  <th scope="row">{{user.id}}</th>
+                  <td>{{user.usuario}}</td>
+                  <td>{{user.correo}}</td>
+                  <td>{{user.descripcion}}</td>
+                  <td>{{user.estado}}</td>
+                  <td>{{user.telefono}}</td>
+                  <td>
+                    <button class="btn btn-danger">DEL</button>
+                    <button class="btn btn-warning">EDIt</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <div class="row">
+              <div class="col-6">
+                <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Cerrar</button>
               </div>
             </div>
-            <div class="form-group">
-              <label for="inputAddress">Telefono</label>
-              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-            </div>
-            <ng-select></ng-select>
-            <div class="form-group">
-              <label for="inputAddress2">Address 2</label>
-              <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="inputCity">City</label>
-                <input type="text" class="form-control" id="inputCity">
-              </div>
-              <div class="form-group col-md-4">
-                <label for="inputState">State</label>
-                <select id="inputState" class="form-control">
-                  <option selected>Choose...</option>
-                  <option>...</option>
-                </select>
-              </div>
-              <div class="form-group col-md-2">
-                <label for="inputZip">Zip</label>
-                <input type="text" class="form-control" id="inputZip">
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                  Check me out
-                </label>
-              </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
-          </form>
-    </div>
-</div> -->
+          </div>
+      </div>
+  </div>
+</div>
+

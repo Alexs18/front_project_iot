@@ -14,7 +14,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
   imports: [
     MainRoutingModule,
     SharedModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    CommonModule
   ],
   exports:[
     UserComponent,

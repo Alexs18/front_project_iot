@@ -39,7 +39,8 @@ export interface StructureListUser {
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit, AfterViewInit {
-  
+
+  CrearUsuario:boolean = false;
   listaUsuarios:StructureListUser[] = [{id:0,usuario: '',correo:'', telefono:0, 
     estado:'', descripcion:''}]
   displayedColumns: string[] = ['id', 'usuario', 'correo', 'telefono','estado', 'descripcion'];
@@ -56,9 +57,25 @@ export class UserComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.GetUser();
   }
+//   id: 2, usuario: "Alexis Lopez", correo: "mclexis18@gmail.com", … }
+// ​​
+// correo: "mclexis18@gmail.com"
+// ​​
+// descripcion: "Administrador"
+// ​​
+// estado: "Desactivado"
+// ​​
+// id: 2
+// ​​
+// telefono
   GetUser(){
     this.ServiceUser.GetListUser().subscribe(resp=>{
+      console.log(resp.users);
+      
       this.listaUsuarios = resp.users
     })
+  }
+  OpenUser(){
+    this.CrearUsuario = !this.CrearUsuario;
   }
 }
