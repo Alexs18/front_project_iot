@@ -1,19 +1,70 @@
-<div class="container mt-5 midle">
+<div class="container midle">
   <div class="row">
     <div class="col-4">
-      <button type="button" class="btn btn-primary btn-lg"
-      data-bs-toggle="modal"
-      data-bs-target="#exampleModal">Crear Usuario</button>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <button type="button" class="form-control btn btn-primary "
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal">Crear Usuario</button>
+        </div>
+      </div>
     </div>
     <div class="col-4">
-      <button type="button" class="btn btn-warning btn-lg"
-      data-bs-toggle="modal"
-      data-bs-target="#exampleModal2">Administración de usuarios</button>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <button type="button" class="form-control btn btn-warning"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal2">Administración De Usuarios</button>
+        </div>
+      </div>
     </div>
+
     <div class="col-4">
-      <button type="button" class="btn btn-success btn-lg">Reportes</button>
+       
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <button type="button" class="form-control btn btn-danger "
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal">Crear Tipo Auditoria</button>
     </div>
   </div>
+
+  <br>
+    </div>
+    <div class="col-4"> 
+      <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <button type="button" class="form-control btn btn-success"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal">Administración de auditoria</button>
+    </div>
+      </div>
+    </div>
+
+    <div class="col-4"> 
+      <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <button type="button" class="form-control btn btn-info"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal">Reportes Auditoria</button>
+    </div>
+      </div>
+    </div>
+
+    <div class="col-4"> 
+      <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <button type="button" class="form-control btn btn-dark"
+      data-bs-toggle="modal"
+      data-bs-target="#CreacionPermiso">Creación de Permisos</button>
+    </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
 </div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -136,6 +187,43 @@
               <div class="col-6">
                 <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Cerrar</button>
               </div>
+            </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="CreacionPermiso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h3 class="modal-title text-title-modal" id="exampleModalLabel">Creación de permisos a usuarios</h3>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div>
+              <form class="row g-3">
+                <div class="col-6">
+                  <label for="inputAddress" class="form-label">Descripción</label>
+                  <input type="text" class="form-control" id="inputAddress" >
+                </div>
+                <div class="col-6">
+                  <label for="inputAddress" class="form-label">Modulo</label>
+                  <input type="text" class="form-control" id="inputAddress" >
+                </div>
+              </form>
+            </div>    
+          </div>
+          <div class="modal-footer">
+            <div class="row">
+              <div class="col-6">
+                <button type="submit" class="btn btn-primary">Registrar</button>
+                <!-- <button type="submit" class="btn btn-danger">Cancelar</button> -->
+              </div>
+              <div class="col-6">
+                <button type="submit" class="btn btn-danger">Cancelar</button>
+              </div>
+
             </div>
           </div>
       </div>

@@ -2,6 +2,8 @@ import { Component, OnInit, AfterViewInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { LoginService } from 'src/app/services/login.service';
+import {faGear} from '@fortawesome/free-solid-svg-icons';
+
 
 export interface StructureListUser {
   id:number;
@@ -11,7 +13,7 @@ export interface StructureListUser {
   estado: string;
   descripcion: string
 }
-// const ELEMENT_DATA: PeriodicElement[] = [
+
 //   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
 //   {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
 //   {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
@@ -48,6 +50,8 @@ export class UserComponent implements OnInit, AfterViewInit {
   
   @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
   constructor(private ServiceUser:LoginService) { }
+
+  administracion= faGear
   // @ViewChild(MatPaginator) : MatPaginator;
 
   ngAfterViewInit() {
@@ -57,17 +61,6 @@ export class UserComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.GetUser();
   }
-//   id: 2, usuario: "Alexis Lopez", correo: "mclexis18@gmail.com", … }
-// ​​
-// correo: "mclexis18@gmail.com"
-// ​​
-// descripcion: "Administrador"
-// ​​
-// estado: "Desactivado"
-// ​​
-// id: 2
-// ​​
-// telefono
   GetUser(){
     this.ServiceUser.GetListUser().subscribe(resp=>{
       console.log(resp.users);

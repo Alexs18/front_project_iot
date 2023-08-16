@@ -39,5 +39,9 @@ export class SensoresService {
     let {URI} = environment;
     return this.http.put(`${URI}/UpdateSensor/${id}`, sensordata) 
   }
+  GetSensorsDefectuosos():Observable<any>{
+    let {URI} = environment
+    return this.http.get(`${URI}/listsensorbad`);
+  }
 
 }

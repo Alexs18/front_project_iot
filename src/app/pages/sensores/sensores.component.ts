@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { faCoffee , faUser, faMicrochip, faPlus} from '@fortawesome/free-solid-svg-icons';
+import { faCoffee , faUser, faMicrochip, faPlus, faTrash, faPenToSquare} from '@fortawesome/free-solid-svg-icons';
 import { SensoresService } from 'src/app/services/sensores.service';
 import Swal from 'sweetalert2';
 
@@ -22,6 +22,8 @@ export class SensoresComponent implements OnInit {
   constructor(private ServiceSensor:SensoresService) { }
   FaMicro = faMicrochip
   FaPlus = faPlus
+  Fadelete = faTrash
+  Edit = faPenToSquare
   ngOnInit(): void {
   
     this.Getsensors();

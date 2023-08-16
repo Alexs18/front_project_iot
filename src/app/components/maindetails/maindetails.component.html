@@ -1,0 +1,310 @@
+<header class="navbar">
+    <div class="logo">
+      <img class="img_logo" src="/assets/logoiot.jpeg" alt="Logo">
+    </div>
+    <nav class="nav-links">
+      <ul>
+        <li (click)="v1funtion(1)"><a>Inicio</a></li>
+        <li (click)="v1funtion(2)"><a>Grupo</a></li>
+        <li (click)="v1funtion(3)"><a>Artículos</a></li>
+        <li (click)="v1funtion(4)"><a>Autores</a></li>
+        <li><a data-bs-toggle="modal"
+            data-bs-target="#exampleModal">Registrarse</a></li>
+        <li><a routerLink="/login">Iniciar Sesión</a></li>
+      </ul>
+    </nav>
+</header>
+
+<div *ngIf="v1">
+    <div class="row inicio">
+        <div class="col-8">
+            <p class="thepadding">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eaque sapiente odio culpa ducimus nihil adipisci odit eos laborum incidunt magnam, asperiores aut blanditiis saepe. Labore ab distinctio veritatis earum!
+                Nemo id eligendi voluptatum quaerat animi voluptatem reiciendis maxime, voluptatibus sit, voluptate laborum harum quas omnis eveniet laboriosam aspernatur tenetur error explicabo veniam architecto mollitia impedit dolor deleniti sunt. Non?
+                Dolorem ad, a quaerat soluta, sequi in ut eos ea fuga voluptatem similique fugiat laboriosam ipsam autem nam consequuntur laudantium dignissimos commodi deserunt. Quae, officiis. Vero sint aliquid necessitatibus magnam!
+                Nobis illo repudiandae molestias ex dicta numquam facere facilis molestiae repellat obcaecati, veritatis laudantium placeat unde nostrum? Dolor unde, exercitationem sit repudiandae minus magni hic ad corrupti dolorem consequatur iste.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eaque sapiente odio culpa ducimus nihil adipisci odit eos laborum incidunt magnam, asperiores aut blanditiis saepe. Labore ab distinctio veritatis earum!
+                Nemo id eligendi voluptatum quaerat animi voluptatem reiciendis maxime, voluptatibus sit, voluptate laborum harum quas omnis eveniet laboriosam aspernatur tenetur error explicabo veniam architecto mollitia impedit dolor deleniti sunt. Non?
+                Dolorem ad, a quaerat soluta, sequi in ut eos ea fuga voluptatem similique fugiat laboriosam ipsam autem nam consequuntur laudantium dignissimos commodi deserunt. Quae, officiis. Vero sint aliquid necessitatibus magnam!
+                Nobis illo repudiandae molestias ex dicta numquam facere facilis molestiae repellat obcaecati, veritatis laudantium placeat unde nostrum? Dolor unde, exercitationem sit repudiandae minus magni hic ad corrupti dolorem consequatur iste.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eaque sapiente odio culpa ducimus nihil adipisci odit eos laborum incidunt magnam, asperiores aut blanditiis saepe. Labore ab distinctio veritatis earum!
+                Nemo id eligendi voluptatum quaerat animi voluptatem reiciendis maxime, voluptatibus sit, voluptate laborum harum quas omnis eveniet laboriosam aspernatur tenetur error explicabo veniam architecto mollitia impedit dolor deleniti sunt. Non?
+                Dolorem ad, a quaerat soluta, sequi in ut eos ea fuga voluptatem similique fugiat laboriosam ipsam autem nam consequuntur laudantium dignissimos commodi deserunt. Quae, officiis. Vero sint aliquid necessitatibus magnam!
+                Nobis illo repudiandae molestias ex dicta numquam facere facilis molestiae repellat obcaecati, veritatis laudantium placeat unde nostrum? Dolor unde, exercitationem sit repudiandae minus magni hic ad corrupti dolorem consequatur iste.
+    
+            </p>
+        </div>
+        <div class="col-4">
+            <img class="img_logo" src="/assets/logoiot.jpeg" alt="Logo">
+        </div>
+    </div>
+</div>
+
+<ng-container *ngIf="v2">
+    <div class="container">
+        <div id="carouselExampleControls" class="carousel slide mt-4" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="/assets/logoiot.jpeg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="/assets/logoiot.jpeg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="/assets/logoiot.jpeg" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="v3">
+    <div class="container mt-4">
+        <div class="card mb-3">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+            <img src="..." class="card-img-bottom" alt="...">
+          </div>
+        <div class="card mb-3">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+            <img src="..." class="card-img-bottom" alt="...">
+          </div>
+        <div class="card mb-3">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+            <img src="..." class="card-img-bottom" alt="...">
+          </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="v4">
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-6">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="..." class="img-fluid rounded-start" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-6">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="..." class="img-fluid rounded-start" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="..." class="img-fluid rounded-start" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-6">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="..." class="img-fluid rounded-start" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="..." class="img-fluid rounded-start" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-6">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="..." class="img-fluid rounded-start" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<button type="button" class="form-control btn btn-primary "
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal">Crear Usuario</button>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title text-title-modal" id="exampleModalLabel">Creación de nuevo usuario</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div>
+                <form class="row g-3">
+                  <div class="col-6">
+                    <label for="inputAddress" class="form-label">Nombres</label>
+                    <input type="text" class="form-control" id="inputAddress" >
+                  </div>
+                  <div class="col-6">
+                    <label for="inputAddress" class="form-label">Apellidos</label>
+                    <input type="text" class="form-control" id="inputAddress" >
+                  </div>
+                  <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Correo</label>
+                    <input type="email" class="form-control" id="inputEmail4">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="inputPassword4" class="form-label">Usuario</label>
+                    <input type="text" class="form-control" id="inputPassword4">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="inputEmail4">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="inputPassword4" class="form-label">Confirmar contraseña</label>
+                    <input type="password" class="form-control" id="inputPassword4">
+                  </div>
+                  <div class="col-6">
+                    <label for="inputAddress2" class="form-label">Teléfono</label>
+                    <input type="number" class="form-control" id="inputAddress2">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="inputCity" class="form-label">Tipo de usuario</label>
+                    <div class="row">
+                      <div class="col-6  mt-2">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="gridCheck">
+                          <label class="form-check-label" for="gridCheck">
+                            Administrador
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-6 mt-2">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="gridCheck">
+                          <label class="form-check-label" for="gridCheck">
+                            Operador
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+        
+                </form>
+              </div>    
+            </div>
+            <div class="modal-footer">
+              <div class="row">
+                <div class="col-6">
+                  <button type="submit" class="btn btn-primary">Registrar</button>
+                  <!-- <button type="submit" class="btn btn-danger">Cancelar</button> -->
+                </div>
+                <div class="col-6">
+                  <button type="submit" class="btn btn-danger">Cancelar</button>
+                </div>
+  
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>

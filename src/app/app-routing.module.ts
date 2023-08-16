@@ -9,11 +9,16 @@ import { ReportesComponent } from './pages/reportes/reportes.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { SensoresComponent } from './pages/sensores/sensores.component';
 import { MainComponent } from './main/main/main.component';
+import { MaindetailsComponent } from './components/maindetails/maindetails.component';
 
 const routes: Routes = [
   {
     path:'login',
     component:LoginComponent
+  },
+  {
+    path:'welcome',
+    component:MaindetailsComponent
   },
   {
     path:'',

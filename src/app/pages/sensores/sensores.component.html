@@ -43,12 +43,16 @@
                         </li>
                     </ul>
                     <div class="row">
-                        <div class="col-7">
-                            <button class="btn btn-warning" (click)="SetSensor(item);" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">Editar Sen.</button>
+                        <div class="col-6">
+                            <button style="margin: 0 0 0 25px !important;" title="Editar Sensor" class="btn btn-warning" (click)="SetSensor(item);" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                            <fa-icon size="1x" class="icon-plus center-container" [icon]="Edit"></fa-icon>
+                            </button>
                         </div>
-                        <div class="col-5">
-                            <button class="btn btn-danger" (click)="DeleteSensor(item.id)">Eliminar</button>
+                        <div class="col-6">
+                            <button title="Desactivar Sensor" class="btn btn-danger" (click)="DeleteSensor(item.id)">
+                                <fa-icon size="1x" class="icon-plus center-container" [icon]="Fadelete"></fa-icon>
+                            </button>
                         </div>
                     </div>
                 </div>

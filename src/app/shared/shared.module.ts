@@ -6,6 +6,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     NgSelectModule,
     MatTableModule,
     MatDialogModule,
-    MatPaginatorModule   
+    MatPaginatorModule,
+    FontAwesomeModule
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA

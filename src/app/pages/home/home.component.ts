@@ -2,6 +2,7 @@ import { ElementRef,Component, OnInit , ViewChild, AfterViewInit} from '@angular
 import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 import {  faArrowsRotate, faUser,faRadiation, faMicrochip, faUsers, fa5} from '@fortawesome/free-solid-svg-icons';
 import { Chart, registerables } from 'chart.js';
+import { SensoresService } from 'src/app/services/sensores.service';
 
 
 @Component({
@@ -13,12 +14,17 @@ export class HomeComponent implements OnInit, AfterViewInit{
 
   @ViewChild('dailyload', {static:false}) dailyload!: ElementRef;
   @ViewChild('contaminationgraf', {static:false}) contaminationgraf!:ElementRef;
-  constructor(){}
+  constructor(
+    private ServiceSensor:SensoresService
+  ){}
   daily:any;
   fecha:any;
   users = faUsers;
   sensors = faMicrochip;
   update = faRadiation;
+  activesensors:number = 0;
+  activesensorsnot:number = 0;
+
   ngOnInit() {
       Chart.register(...registerables)
   }
@@ -52,6 +58,8 @@ export class HomeComponent implements OnInit, AfterViewInit{
       }
     });
     this.generategraf();
+    this.Getsensorscount();
+    this.Getsensorscountbadn();
 
       
   }
@@ -88,6 +96,32 @@ export class HomeComponent implements OnInit, AfterViewInit{
     new Chart(this.contaminationgraf.nativeElement, {
       type: 'pie',
       data: data,
+    })
+  }
+  Getsensorscount(){
+    this.ServiceSensor.GetSensors().subscribe(async(resp)=>{
+      let {listasensor} = resp;
+      if (listasensor.length <= 0) {
+        return this.activesensors = 0
+      }
+     
+      return this.activesensors = listasensor.length;
+    }, error=>{
+      console.log('hay un error en el servidor');
+      console.log(error);
+    })
+  }
+  Getsensorscountbadn(){
+    this.ServiceSensor.GetSensorsDefectuosos().subscribe(async(resp)=>{
+      let {listasensor} = resp;
+      if (listasensor.length <= 0) {
+        return this.activesensorsnot = 0
+      }
+     
+      return this.activesensorsnot = listasensor.length;
+    }, error=>{
+      console.log('hay un error en el servidor');
+      console.log(error);
     })
   }
 }

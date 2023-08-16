@@ -28,6 +28,10 @@ import { MainComponent } from './main/main/main.component';
 import { MainModule } from './main/main/main.module';
 import { CommonModule } from '@angular/common';
 import { CardComponent } from './components/card/card.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatCardModule} from '@angular/material/card';
+import { MaindetailsComponent } from './components/maindetails/maindetails.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +48,9 @@ import { CardComponent } from './components/card/card.component';
     GraficasComponent,
     SensoresComponent,
     MainComponent,
-    CardComponent
+    CardComponent,
+    MaindetailsComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -56,10 +62,13 @@ import { CardComponent } from './components/card/card.component';
     SharedModule,
     NgSelectModule,
     FontAwesomeModule,
-    MainModule
+    MainModule,
+    MatCardModule,
+    MatCheckboxModule
   ],
   exports:[
     NgSelectModule,
+    FontAwesomeModule
     
   ],
   providers: [
