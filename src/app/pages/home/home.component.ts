@@ -24,18 +24,20 @@ export class HomeComponent implements OnInit, AfterViewInit{
   update = faRadiation;
   activesensors:number = 0;
   activesensorsnot:number = 0;
-
-  ngOnInit() {
-      Chart.register(...registerables)
+  listSensors:any[] = [];
+  filterlist:any[] = [];
+  async ngOnInit() {
+      Chart.register(...registerables);
+      await this.Getsensors();
   }
-  ngAfterViewInit(){
+  async ngAfterViewInit(){
     
     let date = this.getdate();
     // this.daily = ;
     new Chart(this.dailyload.nativeElement, {
       type: 'bar',
       data: {
-        labels: ['CH3', 'CH2', 'H20', 'CO2', 'PPM'],
+        labels: this.filterlist,
         datasets: [{
           label: `Mediciones al día ${date}`,
           data: [12, 19, 3, 5, 2],
@@ -60,7 +62,6 @@ export class HomeComponent implements OnInit, AfterViewInit{
     this.generategraf();
     this.Getsensorscount();
     this.Getsensorscountbadn();
-
       
   }
   getdate(){
@@ -71,15 +72,21 @@ export class HomeComponent implements OnInit, AfterViewInit{
     this.fecha = `${hora}:${dia}:${segundos}`
     return this.fecha;
   }
+  async Getsensors(){
+    this.ServiceSensor.GetSensors().subscribe(async(resp)=>{
+      let {listasensor} = resp;
+      this.listSensors = listasensor;
+      for await (const iterator of listasensor) {
+        this.filterlist.push(iterator.elemento_quimico)
+      }
+    }, error=>{
+      console.log('hay un error en el servidor');
+      console.log(error);
+    })
+  }
   generategraf(){
     const data = {
-      labels: [
-        'CH3',
-        'CH2',
-        'H20',
-        'PPM',
-        'CO2'
-      ],
+      labels: this.filterlist,
       datasets: [{
         label: 'My First Dataset',
         data: [300, 50, 100, 10, 50],

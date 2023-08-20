@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { faEnvelope, faPhone, faLocation, faCircleInfo, faInfo} from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-maindetails',
@@ -15,6 +17,10 @@ export class MaindetailsComponent {
 
   }
 
+  faEnvelop = faEnvelope
+  phone = faPhone;
+  location = faLocation;
+  info = faInfo;
   v1funtion(casenumber:number){
 
     if (casenumber == 1) {
@@ -45,6 +51,10 @@ export class MaindetailsComponent {
       this.v4 = true;
       return 
     }
+  }
+
+  OpenWindows(link:string){
+    window.open(link)
   }
 
 }

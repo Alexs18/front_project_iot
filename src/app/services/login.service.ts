@@ -45,4 +45,9 @@ export class LoginService {
     let {URI} = environment
     return this.http.get(`${URI}/listausers`)
   }
+  RegisterUser(data:any):Observable<any>{
+    let {URI} = environment
+    const datos = JSON.stringify(data);
+    return this.http.post(`${URI}/register`, datos ,{headers:this.header})
+  }
 }

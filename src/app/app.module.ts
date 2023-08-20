@@ -68,8 +68,8 @@ import { RegisterComponent } from './components/register/register.component';
   ],
   exports:[
     NgSelectModule,
-    FontAwesomeModule
-    
+    FontAwesomeModule,
+    RegisterComponent
   ],
   providers: [
   ],

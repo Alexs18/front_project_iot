@@ -27,12 +27,12 @@
             </span>
             <a class="nav-link" routerLink="/Sensors">SENSORES</a>
           </li>
-          <li class="li_list">
+          <!-- <li class="li_list">
             <span class="iconstyle">
               <fa-icon [icon]="stadisticicon"></fa-icon>
             </span>
             <a class="nav-link" routerLink="/Mediciones">MEDICIONES</a>
-          </li>
+          </li> -->
           <li class="li_list">
             <span class="iconstyle">
               <fa-icon [icon]="foldericon"></fa-icon>
@@ -41,44 +41,17 @@
           </li>
         </ul>
       </div>
-      <div class="perfil_nav">
-        <span style="color: aqua;">
-          <fa-icon size="2x" [icon]="chaticon"></fa-icon>
-        </span>
-        <span style="color: rgb(246, 246, 41);">
-          <fa-icon size="2x" [icon]="notificationicon"></fa-icon>
-        </span>
-        <fa-icon routerLink="/Perfil" size="2x" [icon]="usericon"></fa-icon>
-        <!-- <div class="content-icon" routerLink="/Perfil">
-        </div> -->
+      <div class="dropdown" style="margin: 0 20px 0 0 !important;">
+        <div class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          <ng-container class="perfil_nav">
+            <fa-icon style="color: aliceblue !important;" size="2x" [icon]="usericon"></fa-icon>
+            <span style="color: aliceblue;"> {{usuario}}</span>
+          </ng-container>
+        </div>
+        <ul style="color: aliceblue;" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" routerLink="/Perfil">Perfil</a></li>
+          <li><a class="dropdown-item" routerLink="/">Cerrar Sesión</a></li>
+        </ul>
       </div>
     </div>
   </div>
-<!-- </nav> -->
-
-<!-- <p>
-    <mat-toolbar color="primary">
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>My App</span>
-      <span class="example-spacer"></span>
-      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-        <mat-icon>favorite</mat-icon>
-      </button>
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-         <mat-icon>share</mat-icon> -->
-        <!-- <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
-
-    </button> 
-    </mat-toolbar>
-  </p> --> 

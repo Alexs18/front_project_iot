@@ -3,6 +3,8 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { LoginService } from 'src/app/services/login.service';
 import {faGear} from '@fortawesome/free-solid-svg-icons';
+import Swal from 'sweetalert2';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 export interface StructureListUser {
@@ -42,6 +44,8 @@ export interface StructureListUser {
 })
 export class UserComponent implements OnInit, AfterViewInit {
 
+  ope:boolean = false;
+  admin:boolean = false;
   CrearUsuario:boolean = false;
   listaUsuarios:StructureListUser[] = [{id:0,usuario: '',correo:'', telefono:0, 
     estado:'', descripcion:''}]
@@ -49,7 +53,10 @@ export class UserComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource<StructureListUser>(this.listaUsuarios);
   
   @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
-  constructor(private ServiceUser:LoginService) { }
+  registrationForm!: FormGroup;
+  constructor(private ServiceUser:LoginService,
+    private readonly fb: FormBuilder,
+    private readonly _LoginServices:LoginService) { }
 
   administracion= faGear
   // @ViewChild(MatPaginator) : MatPaginator;
@@ -59,8 +66,87 @@ export class UserComponent implements OnInit, AfterViewInit {
     
   }
   ngOnInit() {
+    this.registrationForm = this.fb.group({
+      nombre: ['', Validators.required],
+      apellido: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+      confirmarContrasena: ['', Validators.required],
+      telefono: ['', [Validators.required, Validators.maxLength(10)]],
+      idrol:['']
+    }, { validator: this.passwordMatchValidator });
     this.GetUser();
   }
+
+  onSubmit() {
+    this.verificarDatos()
+    if (this.registrationForm.valid) {
+      // Aquí puedes manejar la lógica de registro
+      console.log(this.registrationForm.value);
+    }
+  }
+
+  passwordMatchValidator(formGroup: FormGroup) {
+    const password = formGroup.get('password')?.value;
+    const confirmPassword = formGroup.get('confirmarContrasena')?.value;
+
+    if (password !== confirmPassword) {
+      formGroup.get('confirmarContrasena')?.setErrors({ mismatch: true });
+    } else {
+      formGroup.get('confirmarContrasena')?.setErrors(null);
+    }
+  }
+
+  async verificarDatos(){
+  
+    if (!this.registrationForm.invalid) {
+      console.log('value');
+      console.log(this.registrationForm.value);
+      
+      this._LoginServices.RegisterUser(this.registrationForm.value)
+      .subscribe(async(resp)=>{
+        await Swal.fire({
+          title:'Operación Exitosa',
+          icon:'success',
+          text:`${resp.message}`
+          });
+        this.cerrarmodal();
+      },async(error)=>{
+        let mensajeserror = ''
+        if (error.status === 400) {
+          const errores = error.error;
+          for await (const iterator of errores.error) {
+            mensajeserror += '' + iterator.msg
+          }
+          await Swal.fire({
+          title:'Error al ingresar los datos',
+          icon:'warning',
+          text:`${mensajeserror}`
+          });
+          return 
+        }
+        return await Swal.fire({
+        title:'Error Interno',
+        icon:'error',
+        text:`Ocurrio error interno, contacte con administración`
+        });
+        
+      })
+      return
+    }
+    this.registrationForm.invalid
+    await Swal.fire({
+      title:'Falló al registrar',
+      icon:'warning',
+      text:'Al parecer algunos datos estan incompletos, por favor verificar y volver a intentar'
+    })
+  }
+
+  private cerrarmodal(){
+    const modalclose = document.getElementById('CerrarModal');
+    modalclose?.click();
+  }
+
   GetUser(){
     this.ServiceUser.GetListUser().subscribe(resp=>{
       console.log(resp.users);
@@ -71,4 +157,22 @@ export class UserComponent implements OnInit, AfterViewInit {
   OpenUser(){
     this.CrearUsuario = !this.CrearUsuario;
   }
+
+  onCheckboxChange(event:any) {
+    const checkboxValue = event.target.value;
+    if (checkboxValue === 'administrador') {
+      this.registrationForm.get('rol')?.setValue('1');
+      this.registrationForm.get('operador')?.setValue(false);
+    } else if (checkboxValue === 'operador') {
+      this.registrationForm.get('rol')?.setValue('2');
+      this.registrationForm.get('administrador')?.setValue(false);
+    }
+  }
+  hola(){
+    console.log();
+    
+    console.log('hola');
+    
+  }
+
 }

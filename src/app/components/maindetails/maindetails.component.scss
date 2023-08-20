@@ -1,4 +1,17 @@
 /* Estilos generales */
+html{
+  font-family: Arial, Helvetica, sans-serif;
+}
+// .everything{
+//   margin: 0;
+//     padding: 0;
+//     background-image: url('/assets/LogoFacci.jpg');
+//     background-size: cover;
+//     background-position: center;
+//     background-repeat: no-repeat;
+//     background-attachment: fixed;
+//     background-color: rgba(0, 0, 0, 0.5);
+// }
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -31,8 +44,13 @@
   }
 
   .img_logo{
-    width: 150px !important;
-    height: 70px;
+    width: 120px !important;
+    height: 80px;
+  }
+
+  .img_logo2{
+    width: 100% !important;
+    height: 250px;
   }
 
   .inicio{
@@ -42,6 +60,7 @@
   .thepadding{
     padding: 10px !important;
     line-height: 2;
+    color: rgb(30, 31, 31);
   }
 
   .fade-in {
@@ -58,3 +77,12 @@
   .fade-in.ng-enter.ng-enter-active {
     opacity: 1;
   }
+  .stylecar{
+    height: 500px !important;
+  }
+  .banner {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}

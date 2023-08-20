@@ -18,11 +18,11 @@ const routes: Routes = [
   },
   {
     path:'welcome',
-    component:MaindetailsComponent
+    component: MaindetailsComponent,
   },
   {
     path:'',
-    component: MainComponent,
+    component:MainComponent,
     canActivate:[AuthGuard],
     children:[
       {

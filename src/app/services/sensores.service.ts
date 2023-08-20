@@ -43,5 +43,10 @@ export class SensoresService {
     let {URI} = environment
     return this.http.get(`${URI}/listsensorbad`);
   }
+  Detasensors(ids:any):Observable<any>{
+    let {URI} = environment;
+    const sensordata = JSON.stringify(ids);
+    return this.http.post(`${URI}/verificardatos`, sensordata, {headers:this.header});
+  }
 
 }
