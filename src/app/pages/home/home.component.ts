@@ -3,6 +3,7 @@ import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 import {  faArrowsRotate, faUser,faRadiation, faMicrochip, faUsers, fa5} from '@fortawesome/free-solid-svg-icons';
 import { Chart, registerables } from 'chart.js';
 import { SensoresService } from 'src/app/services/sensores.service';
+import { LoginService } from 'src/app/services/login.service';
 
 
 @Component({
@@ -15,7 +16,8 @@ export class HomeComponent implements OnInit, AfterViewInit{
   @ViewChild('dailyload', {static:false}) dailyload!: ElementRef;
   @ViewChild('contaminationgraf', {static:false}) contaminationgraf!:ElementRef;
   constructor(
-    private ServiceSensor:SensoresService
+    private ServiceSensor:SensoresService,
+    private ServiceUser:LoginService
   ){}
   daily:any;
   fecha:any;
@@ -26,7 +28,9 @@ export class HomeComponent implements OnInit, AfterViewInit{
   activesensorsnot:number = 0;
   listSensors:any[] = [];
   filterlist:any[] = [];
+  listaUsuarios:any[] = []
   async ngOnInit() {
+      this.GetUser();
       Chart.register(...registerables);
       await this.Getsensors();
   }
@@ -129,6 +133,13 @@ export class HomeComponent implements OnInit, AfterViewInit{
     }, error=>{
       console.log('hay un error en el servidor');
       console.log(error);
+    })
+  }
+  GetUser(){
+    this.ServiceUser.GetListUser().subscribe(resp=>{
+      console.log(resp.users);
+      
+      this.listaUsuarios = resp.users
     })
   }
 }

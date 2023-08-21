@@ -1,5 +1,8 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { faCoffee, faChartSimple ,faUser, faMicrochip, faWifi, faHome, faFolder, faGear, faBell, faComment} from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { faCoffee, faChartSimple ,faUser,
+  faMicrochip, faWifi, faHome, faFolder, faGear, faBell, 
+  faComment, faRightFromBracket, faHouse, faFlask} from '@fortawesome/free-solid-svg-icons';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +11,10 @@ import { faCoffee, faChartSimple ,faUser, faMicrochip, faWifi, faHome, faFolder,
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
 
-  constructor() { }
+  @ViewChild('bodysidebar', {static:false}) bodysidebar!:ElementRef;
+  constructor(
+    
+  ) { }
 
   usericon = faUser;
   homeicon = faHome;
@@ -18,8 +24,12 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   adminicon = faGear;
   notificationicon = faBell;
   chaticon = faComment;
+  logout = faRightFromBracket;
+  element = faFlask;
   DatosUsuario:any;
   usuario:string = ''
+  home = faHouse;
+  listaUsuarios:any[] = []
   ngOnInit(): void {
     this.DatosUsuario = localStorage.getItem("user");
     console.log(this.DatosUsuario);
@@ -38,6 +48,10 @@ export class HeaderComponent implements OnInit, AfterViewInit {
       dropdown?.addEventListener("click", function () {
       dropdownContent?.classList.toggle("show");
     });
+  }
+  nav(){
+    const data = this.bodysidebar.nativeElement as HTMLElement;
+    data.classList.toggle('sidebar-collapse')
   }
 
 }

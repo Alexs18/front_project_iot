@@ -1,5 +1,5 @@
 <ng-container *ngIf="listSensors.length <= 0">
-    <div class="container bg-light mt-2 container-personal">
+    <div class="container bg-light container-personal">
         <div class="row justify-content-center align-items-center">
             <div class="icon-micro-div">
                 <fa-icon class="icon-micro center-container" [icon]="FaMicro"></fa-icon>
@@ -18,7 +18,7 @@
     </div>
 </ng-container>
 <ng-container>
-    <div class="container bg-light mt-4 container-personal2">
+    <div class="container bg-light container-personal2">
         <button class="btn-new-point" data-bs-toggle="modal" (click)="CambiarEstado()" data-bs-target="#exampleModal">
             <fa-icon class="icon-plus center-container" [icon]="FaPlus"></fa-icon>
         </button>

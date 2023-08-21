@@ -1,57 +1,288 @@
-<!-- <nav class="navbar  navbar-expand-lg "> -->
-  <div class="main_nav bg-color-nav">
-    <div class="logo_nav">
-      <ng-container>
-        <!-- <img class="img_logo2 mb-3" src="/assets/LogoConstante.png" alt="Not load" srcset=""> -->
-        <img class="logo_text" src="/assets/baner2.png" alt="Not load" srcset="">
-      </ng-container>
-    </div>
-    <div class="navbar_personal">
-      <div class="list_items">
-        <ul class="ul_list mt-1">
-          <li class="li_list">
-            <span class="iconstyle">
-              <fa-icon [icon]="homeicon"></fa-icon>
-            </span>
-            <a class="nav-link active" aria-current="page" routerLink="/Home">INICIO</a>
-          </li>
-          <li class="li_list" >
-            <span class="iconstyle">
-              <fa-icon [icon]="adminicon"></fa-icon>
-            </span>
-            <a class="nav-link" routerLink="/Administracion">ADMINISTRACION</a>
-          </li>
-          <li class="li_list" >
-            <span class="iconstyle">
-              <fa-icon [icon]="sensoricon"></fa-icon>
-            </span>
-            <a class="nav-link" routerLink="/Sensors">SENSORES</a>
-          </li>
-          <!-- <li class="li_list">
-            <span class="iconstyle">
-              <fa-icon [icon]="stadisticicon"></fa-icon>
-            </span>
-            <a class="nav-link" routerLink="/Mediciones">MEDICIONES</a>
-          </li> -->
-          <li class="li_list">
-            <span class="iconstyle">
-              <fa-icon [icon]="foldericon"></fa-icon>
-            </span>
-            <a class="nav-link" routerLink="/Reportes">REPORTES</a>
-          </li>
-        </ul>
-      </div>
-      <div class="dropdown" style="margin: 0 20px 0 0 !important;">
-        <div class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          <ng-container class="perfil_nav">
-            <fa-icon style="color: aliceblue !important;" size="2x" [icon]="usericon"></fa-icon>
-            <span style="color: aliceblue;"> {{usuario}}</span>
-          </ng-container>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | Blank Page</title>
+
+  <!-- <script src="/assets/plugins/jquery/jquery.min.js"></script> -->
+  <!-- Bootstrap 4 -->
+  <!-- <script src="/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+  <!-- AdminLTE App -->
+  <!-- <script src="/assets/dist/js/adminlte.min.js"></script> -->
+  <!-- AdminLTE for demo purposes -->
+  <!-- <script src="/assets/dist/js/demo.js"></script> -->
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <!-- <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css"> -->
+  <link rel="stylesheet" href="/assets/plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <!-- <link rel="stylesheet" href="/dist/css/adminlte.min.css"> -->
+  <link rel="stylesheet" href="/assets/dist/css/adminlte.min.css">
+</head>
+<body #bodysidebar class="hold-transition sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item" (click)="nav()">
+        <p class="nav-link" data-widget="pushmenu" role="button"><i class="fas fa-bars"></i></p>
+      </li>
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Navbar Search -->
+      <li class="nav-item">
+        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+        </a>
+        <div class="navbar-search-block">
+          <form class="form-inline">
+            <div class="input-group input-group-sm">
+              <div class="input-group-append">
+                <button class="btn btn-navbar" type="submit">
+                </button>
+                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
-        <ul style="color: aliceblue;" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" routerLink="/Perfil">Perfil</a></li>
-          <li><a class="dropdown-item" routerLink="/">Cerrar Sesión</a></li>
-        </ul>
-      </div>
+      </li>
+
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="../../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Brad Diesel
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">Call me whenever you can...</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="../../dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  John Pierce
+                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="../../dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Nora Silvester
+                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">The subject goes here</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+        </div>
+      </li>
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+      <li routerLink="/login" class="nav-item">
+        <p class="nav-link" data-widget="control-sidebar" data-slide="true" role="button">
+          <fa-icon [icon]="logout"></fa-icon>
+        </p>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar elevation-4" style="background-color: rgb(18, 18, 49) !important;">
+    <!-- Brand Logo -->
+    <div class="brand-link">
+      <img src="/assets/img/logo/LogoIoT3.png" alt="Grupo Investigación" class="brand-image" style="opacity: .8;width: 67%; height: 30%;">
+      <br>
+      <!-- <span class="brand-text font-weight-light text-center" style="font-size: 15px;">Grupo Investigación IOT</span> -->
     </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <!-- <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> -->
+          <fa-icon style="color: aliceblue !important;" size="2x" [icon]="usericon"></fa-icon>
+        </div>
+        <div class="info">
+          <a class="d-block"
+          routerLink="/Perfil">
+            {{usuario}}
+          </a>
+        </div>
+      </div>
+
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          
+          <li class="nav-item">
+            <a style="margin:0 0 0 5px"
+            class="nav-link">
+            <fa-icon routerLink="/Home" size="1x" [icon]="home">
+              
+            </fa-icon>
+            <p style="margin:0 0 0 8px">
+                Inicio
+              </p>
+            </a>
+          </li>
+          
+          <li class="nav-item">
+            <a 
+            routerLink="/Administracion"
+            class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Administración
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a 
+            routerLink="/Sensors"
+            class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Sensores
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a 
+            routerLink="/Reportes"
+            class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Reportes
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                Auditorias
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a style="margin:0 0 0 5px"
+            class="nav-link">
+            <fa-icon routerLink="/Home" size="1x" [icon]="element">
+              
+            </fa-icon>
+            <p style="margin:0 0 0 8px">
+                Elementos Quimicos
+              </p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Grupo de Investigación IoT</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <app-root></app-root>
+
+    </section>
+    <!-- /.content -->
   </div>
+  <!-- /.content-wrapper -->
+
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3
+    </div>
+    <strong>Copyright &copy; 2022-2023 <a>Grupo de investigación IOT</a>.</strong> Todos los derechos reservados
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar" style="background-color: rgb(18, 18, 49) !important;">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+</body>

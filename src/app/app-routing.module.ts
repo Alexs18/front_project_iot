@@ -52,7 +52,7 @@ const routes: Routes = [
     ]
   },
   
-  {path:'**', redirectTo:'/login'}
+  {path:'**', redirectTo:'/welcome'},
 ];
 
 @NgModule({

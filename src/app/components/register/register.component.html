@@ -2,27 +2,37 @@
     <div>
       <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="row g-3">
         <div class="col-6">
-          <label for="nombre" class="form-label">Nombres</label>
+          <label for="nombre" class="form-label"
+          [ngClass]="{ 'colornormal': loginregister, 'clase-inactiva': !loginregister }"
+          >Nombres
+          </label>
           <input type="text" class="form-control" id="nombre" formControlName="nombre" required>
         </div>
         <div class="col-6">
-          <label for="apellido" class="form-label">Apellidos</label>
+          <label for="apellido" class="form-label"
+          [ngClass]="{ 'colornormal': loginregister, 'clase-inactiva': !loginregister }">
+              Apellidos
+          </label>
           <input type="text" class="form-control" id="apellido" formControlName="apellido" required >
         </div>
         <div class="col-md-6">
-          <label for="email" class="form-label" >Correo</label>
+          <label for="email" class="form-label"
+          [ngClass]="{ 'colornormal': loginregister, 'clase-inactiva': !loginregister }">Correo</label>
           <input type="email" class="form-control" id="email" formControlName="email" required>
         </div>
         <div class="col-md-6">
-          <label for="password" class="form-label">Contraseña</label>
+          <label for="password" class="form-label"
+          [ngClass]="{ 'colornormal': loginregister, 'clase-inactiva': !loginregister }">Contraseña</label>
           <input type="password" class="form-control" id="password" formControlName="password" required>
         </div>
         <div class="col-md-6">
-          <label for="confirmarContrasena" class="form-label">Confirmar contraseña</label>
+          <label for="confirmarContrasena" class="form-label"
+          [ngClass]="{ 'colornormal': loginregister, 'clase-inactiva': !loginregister }">Confirmar contraseña</label>
           <input type="password" class="form-control" id="confirmarContrasena"  formControlName="confirmarContrasena" required>
         </div>
         <div class="col-6">
-          <label for="telefono" class="form-label">Teléfono</label>
+          <label for="telefono" class="form-label"
+          [ngClass]="{ 'colornormal': loginregister, 'clase-inactiva': !loginregister }">Teléfono</label>
           <input type="number" class="form-control" id="telefono" formControlName="telefono" required>
         </div>
         <ng-container *ngIf="!loginregister">
@@ -49,18 +59,14 @@
             </div>
         </ng-container>
         <div class="modal-footer">
-            <div class="row">
-              <div class="col-6">
-                <button type="submit" class="btn btn-primary">Registrar</button>
-                <!-- <button type="submit" class="btn btn-danger">Cancelar</button> -->
-              </div>
-              <div class="col-6">
+          <button type="submit" class=" form-control btn btn-primary">Registrarse</button>
+              
+              <!-- <button type="submit" class="btn btn-danger">Cancelar</button> -->
+              <!-- <div class="col-6">
                 <button class="btn btn-danger"
                 data-bs-dismiss="modal">Cancelar</button>
-              </div>
-
-            </div>
-          </div>
+              </div> -->
+        </div>
       </form>
     </div>    
   </div>
