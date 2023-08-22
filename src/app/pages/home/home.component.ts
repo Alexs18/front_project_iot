@@ -78,6 +78,9 @@ export class HomeComponent implements OnInit, AfterViewInit{
   }
   async Getsensors(){
     this.ServiceSensor.GetSensors().subscribe(async(resp)=>{
+      console.log('el get de los sensores');
+      console.log(resp);
+      
       let {listasensor} = resp;
       this.listSensors = listasensor;
       for await (const iterator of listasensor) {

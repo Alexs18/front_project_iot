@@ -10,6 +10,7 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
 import { SensoresComponent } from './pages/sensores/sensores.component';
 import { MainComponent } from './main/main/main.component';
 import { MaindetailsComponent } from './components/maindetails/maindetails.component';
+import { ElementosComponent } from './components/elementos/elementos.component';
 
 const routes: Routes = [
   {
@@ -48,6 +49,10 @@ const routes: Routes = [
       {
         path:'Perfil',
         component:PerfilComponent
+      },
+      {
+        path:'Elementos',
+        component:ElementosComponent
       },
     ]
   },

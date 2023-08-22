@@ -50,7 +50,6 @@
     </div>
       </div>
     </div> -->
-
     <div class="col-4"> 
       <div class="card" style="width: 18rem;">
     <div class="card-body">
@@ -72,7 +71,7 @@
       <div class="modal-content">
           <div class="modal-header">
               <h3 class="modal-title text-title-modal" id="exampleModalLabel">Creación de nuevo usuario</h3>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" id="CerrarModal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <div>
@@ -106,13 +105,17 @@
                   <div class="row">
                     <div class="col-6 mt-2">
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="administrador" (click)="hola()">
+                        <input class="form-check-input" type="checkbox" id="administrador"
+                        formControlName="administrador"
+                        value="administrador"
+                        (change)="onCheckboxChange($event)">
                         <label class="form-check-label" for="administrador">Administrador</label>
                       </div>
                     </div>
                     <div class="col-6 mt-2">
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="operador" value="operador" (change)="onCheckboxChange($event)">
+                        <input class="form-check-input" type="checkbox"
+                        formControlName="operador" id="operador" value="operador" (change)="onCheckboxChange($event)">
                         <label class="form-check-label" for="operador">Operador</label>
                       </div>
                     </div>

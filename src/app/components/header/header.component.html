@@ -134,7 +134,7 @@
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
-      <li routerLink="/login" class="nav-item">
+      <li (click)="logoutsection()" class="nav-item">
         <p class="nav-link" data-widget="control-sidebar" data-slide="true" role="button">
           <fa-icon [icon]="logout"></fa-icon>
         </p>
@@ -175,10 +175,11 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           
-          <li class="nav-item">
+          <li class="nav-item"
+          routerLink="/Home">
             <a style="margin:0 0 0 5px"
             class="nav-link">
-            <fa-icon routerLink="/Home" size="1x" [icon]="home">
+            <fa-icon size="1x" [icon]="home">
               
             </fa-icon>
             <p style="margin:0 0 0 8px">
@@ -187,29 +188,35 @@
             </a>
           </li>
           
-          <li class="nav-item">
+          <ng-container *ngIf="rol == 'Administrador'">
+            <li class="nav-item"
+            routerLink="/Administracion">
+              <a 
+              class="nav-link">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                  Administración
+                </p>
+              </a>
+            </li>
+          </ng-container>
+
+          <ng-container *ngIf="rol == 'Administrador'">
+            <li class="nav-item"
+             routerLink="/Sensors">
+              <a 
+              class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Sensores
+                </p>
+              </a>
+            </li>
+          </ng-container>
+          
+          <li class="nav-item"
+            routerLink="/Reportes">
             <a 
-            routerLink="/Administracion"
-            class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Administración
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a 
-            routerLink="/Sensors"
-            class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Sensores
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a 
-            routerLink="/Reportes"
             class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -217,25 +224,31 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
-                Auditorias
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a style="margin:0 0 0 5px"
-            class="nav-link">
-            <fa-icon routerLink="/Home" size="1x" [icon]="element">
-              
-            </fa-icon>
-            <p style="margin:0 0 0 8px">
-                Elementos Quimicos
-              </p>
-            </a>
-          </li>
+          <!-- <ng-container *ngIf="rol == 'Administrador'">
+            <li class="nav-item">
+              <a class="nav-link">
+                <i class="nav-icon fas fa-chart-pie"></i>
+                <p>
+                  Auditorias
+                </p>
+              </a>
+            </li>
+          </ng-container> -->
+
+          <ng-container *ngIf="rol == 'Administrador'">
+            <li class="nav-item"
+              routerLink="/Elementos">
+              <a style="margin:0 0 0 5px"
+              class="nav-link">
+              <fa-icon size="1x" [icon]="element">
+                
+              </fa-icon>
+              <p style="margin:0 0 0 8px">
+                  Elementos Quimicos
+                </p>
+              </a>
+            </li>
+          </ng-container>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

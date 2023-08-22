@@ -7,28 +7,38 @@ import { environment } from 'src/environments/environment';
 })
 export class AdminusersService {
 
+  private getToken(): string | null {
+    return localStorage.getItem('token');
+  }
+
+  private getHeaders(): HttpHeaders {
+    const token = this.getToken();
+    return new HttpHeaders({
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin":"*",
+      "Authorization": `Bearer ${token}`
+    });
+  }
+
   header = new HttpHeaders({
-    // 'Content-Type': 'application/json',
-    // 'X-Requested-With': 'XMLHttpRequest',
-    // 'MyClientCert': '',        // This is empty
-    // 'MyToken': ''     ,         // This is empty
     "Access-Control-Allow-Origin":"*"
   })
   .set('content-type', 'application/json')
-  .set('Access-Control-Allow-Origin', ['*']);
+  .set('Access-Control-Allow-Origin', ['*'])
+  .set('authorization', `${this.getToken()}`)
 
   constructor(private http:HttpClient) { }
 
   DeleteUser(id:any){
     let {URI} = environment;
-    return this.http.put(`${URI}/DeleteUser/${id}`,{headers:this.header});
+    return this.http.put(`${URI}/DeleteUser/${id}`,{headers:this.getHeaders()});
   }
   UpdateUser(id:any, user:any){
     let {URI} = environment;
-    return this.http.put(`${URI}/EditUser/${id}`,user,{headers:this.header});
+    return this.http.put(`${URI}/EditUser/${id}`,user,{headers:this.getHeaders()});
   }
   RegistrarUser(user:any){
     let {URI}= environment;
-    this.http.post(`${URI}/register`, user, {headers:this.header});
+    this.http.post(`${URI}/register`, user, {headers:this.getHeaders()});
   }
 }

@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   email:FormControl = new FormControl('', [Validators.required, Validators.email]);
-  password:FormControl<string | null> = new FormControl<string | null>('', [Validators.maxLength(8), Validators.required])
+  password:FormControl<string | null> = new FormControl<string | null>('', [Validators.minLength(8), Validators.required])
   advertencia:string = ''
   constructor(private LoginServices:LoginService, private route:Router) { }
 

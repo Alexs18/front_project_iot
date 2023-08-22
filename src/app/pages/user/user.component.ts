@@ -73,7 +73,9 @@ export class UserComponent implements OnInit, AfterViewInit {
       password: ['', Validators.required],
       confirmarContrasena: ['', Validators.required],
       telefono: ['', [Validators.required, Validators.maxLength(10)]],
-      idrol:['']
+      idrol:[''],
+      operador:[false],
+      administrador:[false]
     }, { validator: this.passwordMatchValidator });
     this.GetUser();
   }
@@ -111,6 +113,7 @@ export class UserComponent implements OnInit, AfterViewInit {
           text:`${resp.message}`
           });
         this.cerrarmodal();
+        this.GetUser();
       },async(error)=>{
         let mensajeserror = ''
         if (error.status === 400) {
@@ -159,14 +162,20 @@ export class UserComponent implements OnInit, AfterViewInit {
   }
 
   onCheckboxChange(event:any) {
+    console.log('pasa');
+    console.log(event);
+    console.log(event.target.value);
+    
     const checkboxValue = event.target.value;
     if (checkboxValue === 'administrador') {
-      this.registrationForm.get('rol')?.setValue('1');
+      this.registrationForm.get('idrol')?.setValue('1');
       this.registrationForm.get('operador')?.setValue(false);
     } else if (checkboxValue === 'operador') {
-      this.registrationForm.get('rol')?.setValue('2');
+      this.registrationForm.get('idrol')?.setValue('2');
       this.registrationForm.get('administrador')?.setValue(false);
     }
+    console.log(this.registrationForm.value);
+    
   }
   hola(){
     console.log();

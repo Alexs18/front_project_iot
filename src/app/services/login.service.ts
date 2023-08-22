@@ -26,6 +26,20 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
+  getToken():boolean{
+    if (localStorage.getItem('token')?.length === undefined ) {
+      return false
+    }
+    return true
+  }
+
+  isLoggedIn():boolean{
+    console.log('logger');
+    console.log(this.getToken());
+    
+    return !!this.getToken(); // Verifica si hay un token en localStorage
+  }
+
   login(usuario:user):Observable<any>{
 
     let {URI} = environment;

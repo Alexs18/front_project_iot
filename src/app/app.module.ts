@@ -32,6 +32,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
 import { MaindetailsComponent } from './components/maindetails/maindetails.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ElementosComponent } from './components/elementos/elementos.component';
+import { AuditoriasComponent } from './components/auditorias/auditorias.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { RegisterComponent } from './components/register/register.component';
     MainComponent,
     CardComponent,
     MaindetailsComponent,
-    RegisterComponent
+    RegisterComponent,
+    ElementosComponent,
+    AuditoriasComponent
   ],
   imports: [
     BrowserModule,

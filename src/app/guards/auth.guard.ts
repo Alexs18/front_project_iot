@@ -22,13 +22,12 @@ export class AuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
- 
-    let token = this.ValidarToken();
-    if (!token) {
-      this.router.navigate(['login']);  
-      return false;
+      if (this.loginservice.isLoggedIn()) {
+        return true; // Usuario autenticado, permitir acceso
+      } else {
+        this.router.navigate(['/welcome']); // Redirigir a la página de bienvenida si no ha iniciado sesión
+        return false;
+      }
     }
-    return true
-  }
   
 }
